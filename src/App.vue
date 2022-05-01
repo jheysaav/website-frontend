@@ -2,7 +2,8 @@
   <router-view></router-view>
 </template>
 
-<style>
+<style lang="scss">
+  @import '~@/styles/fonts';
   @tailwind base;
 
   ::selection {
@@ -10,18 +11,18 @@
   }
 
   ::-webkit-scrollbar {
-    width: auto;
+    @apply w-2.5;
   }
 
   ::-webkit-scrollbar-thumb {
     @apply bg-gray-300;
-    @apply border-2 border-solid border-gray-100 rounded-md;
+    @apply border-2 border-solid border-gray-50 rounded-md;
 
-    @apply dark:bg-gray-700;
-    @apply border-2 border-solid dark:border-gray-800 rounded-md;
+    @apply dark:bg-gray-800;
+    @apply border-2 border-solid dark:border-gray-900 rounded-md;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-gray-100 dark:bg-gray-800;
+    @apply bg-gray-50 dark:bg-gray-900;
   }
 </style>
