@@ -1,7 +1,8 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import router from './plugins/router'
+import App from '@/App.vue'
+import router from '@/plugins/router'
 import { createHead, Head } from '@vueuse/head'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 import 'tailwindcss/tailwind.css'
 
 const app = createApp(App)
@@ -12,5 +13,6 @@ app.use(router)
 app.use(head)
 
 app.component(Head.name, Head)
+app.component('DefaultLayout', DefaultLayout)
 
 app.mount('#app')

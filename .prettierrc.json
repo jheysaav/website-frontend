@@ -1,7 +1,5 @@
 {
-    "endOfLine": "lf",
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "vueIndentScriptAndStyle": true
+  "endOfLine": "lf",
+  "semi": false,
+  "singleQuote": true
 }

@@ -22,9 +22,9 @@
 </template>
 
 <script setup lang="ts">
-  const props = defineProps<{
-    title: string
-    desription?: string
-    keywords?: string
-  }>()
+const props = defineProps<{
+  title: string
+  desription?: string
+  keywords?: string
+}>()
 </script>
