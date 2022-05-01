@@ -2,6 +2,20 @@
   <router-view></router-view>
 </template>
 
+<script setup lang="ts">
+import { onBeforeMount } from 'vue'
+
+onBeforeMount(() => {
+  if (
+    window.matchMedia &&
+    window.matchMedia('(prefers-color-scheme: dark)').matches
+  ) {
+    const html = document.getElementsByTagName('html')[0]
+    html.classList.add('dark')
+  }
+})
+</script>
+
 <style lang="scss">
 @import '~@/styles/fonts';
 @tailwind base;
