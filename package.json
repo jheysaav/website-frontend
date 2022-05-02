@@ -12,6 +12,7 @@
     "lint:check": "eslint --ext js,ts,vue --ignore-path .gitignore src"
   },
   "dependencies": {
+    "@heroicons/vue": "^1.0.6",
     "@vueuse/head": "^0.7.6",
     "vue": "^3.2.33",
     "vue-router": "^4.0.13"

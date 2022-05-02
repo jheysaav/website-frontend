@@ -16,12 +16,15 @@
     <meta name="twitter:site" content="@jheysaav" />
     <meta name="twitter:creator" content="@jheysaav" />
   </Head>
+  <DefaultHeader />
   <main>
     <slot></slot>
   </main>
 </template>
 
 <script setup lang="ts">
+import DefaultHeader from '@/components/DefaultHeader.vue'
+
 const props = defineProps<{
   title: string
   desription?: string

@@ -14,6 +14,16 @@ onBeforeMount(() => {
     html.classList.add('dark')
   }
 })
+
+window.matchMedia &&
+  window.matchMedia('(prefers-color-scheme: dark)').addListener((e) => {
+    const html = document.getElementsByTagName('html')[0]
+    if (e.matches) {
+      html.classList.add('dark')
+    } else {
+      html.classList.remove('dark')
+    }
+  })
 </script>
 
 <style lang="scss">
