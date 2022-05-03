@@ -1,9 +1,11 @@
 <template>
+  <AppHeader />
   <router-view></router-view>
 </template>
 
 <script setup lang="ts">
 import { onBeforeMount } from 'vue'
+import AppHeader from '@/components/AppHeader.vue'
 
 onBeforeMount(() => {
   if (

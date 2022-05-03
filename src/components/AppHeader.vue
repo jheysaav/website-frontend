@@ -15,7 +15,12 @@
           <li
             v-for="item in navigationItems"
             :key="item.name"
-            class="px-6 py-2 hover:bg-gray-200 hover:dark:bg-gray-700/75 rounded-lg text-gray-600 dark:text-gray-500 font-[420] transition-all md:hover:bg-gray-100 md:hover:dark:bg-gray-800"
+            :class="`px-6 py-2 hover:bg-gray-200 hover:dark:bg-gray-700/75 rounded-lg ${
+              route.fullPath === item.path ||
+              (route.fullPath.startsWith(item.path) && item.path !== '/')
+                ? 'text-gray-800 dark:text-gray-100'
+                : 'text-gray-600 dark:text-gray-500'
+            } font-[420] transition-all duration-500 motion-reduce:transition-none md:hover:bg-gray-100 md:hover:dark:bg-gray-800`"
           >
             <router-link :to="item.path">{{ item.name }}</router-link>
           </li>
@@ -35,6 +40,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import IconButton from '@/components/IconButton.vue'
 import { MenuAlt1Icon, MoonIcon, SunIcon } from '@heroicons/vue/outline'
 
@@ -53,6 +59,7 @@ const navigationItems = [
   },
 ]
 
+const route = useRoute()
 const themeIsDark = ref(false)
 const menuIsOpen = ref(false)
 const html = document.getElementsByTagName('html')[0]
