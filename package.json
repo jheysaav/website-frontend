@@ -1,6 +1,7 @@
 {
   "name": "personal-website-frontend",
   "private": true,
+  "license": "MIT",
   "version": "1.0.0-beta",
   "packageManager": "yarn@3.2.0",
   "scripts": {
