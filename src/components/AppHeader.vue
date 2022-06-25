@@ -1,9 +1,12 @@
 <template>
   <header
-    class="flex items-center justify-between px-3 pt-4 pb-6 mx-auto max-w-3xl bg-grey-50 dark:bg-grey-900 select-none sm:pt-6 sm:pb-12"
+    class="flex items-center justify-between px-3 pt-4 pb-6 mx-auto max-w-3xl bg-grey-50 dark:bg-grey-900 select-none md:pt-6 md:pb-12 2xl:max-w-5xl"
   >
     <div class="flex flex-col md:flex-row items-center justify-center">
-      <IconButton class="flex md:hidden" @click="toggleMenu"
+      <IconButton
+        class="flex md:hidden"
+        title="Show and hide the navigation menu"
+        @click="toggleMenu"
         ><MenuAlt1Icon class="w-5 h-5"
       /></IconButton>
       <nav>
@@ -12,27 +15,28 @@
             menuIsOpen ? 'translate-x-0 scale-100' : '-translate-x-full scale-0'
           } transition-transform motion-reduce:transition-none duration-300 md:flex-row md:relative md:translate-x-0 md:scale-100 md:bg-grey-50 md:dark:bg-grey-900 md:shadow-none md:space-y-0 md:space-x-2 md:m-0 md:p-0 md:max-w-full md:max-h-full`"
         >
-          <li
-            v-for="item in navigationItems"
-            :key="item.name"
-            :class="`px-3 py-1.5 hover:bg-grey-200 hover:dark:bg-grey-700/75 rounded-lg ${
-              route.fullPath === item.path ||
-              (route.fullPath.startsWith(item.path) && item.path !== '/')
-                ? 'text-grey-800 dark:text-grey-100'
-                : 'text-grey-600 dark:text-grey-500'
-            } font-[420] transition-all duration-500 motion-reduce:transition-none md:hover:bg-grey-100 md:hover:dark:bg-grey-800`"
-          >
-            <router-link :to="item.path">{{ item.name }}</router-link>
+          <li v-for="item in navigationItems" :key="item.name" class="flex">
+            <router-link
+              :to="item.path"
+              :class="`px-3 py-2 w-full hover:bg-grey-200 hover:dark:bg-grey-700/75 rounded-lg ${
+                route.fullPath === item.path ||
+                (route.fullPath.startsWith(item.path) && item.path !== '/')
+                  ? 'text-grey-800 dark:text-grey-100'
+                  : 'text-grey-600 dark:text-grey-500'
+              } font-[450] transition-all duration-500 motion-reduce:transition-none md:hover:dark:bg-grey-800`"
+              >{{ item.name }}</router-link
+            >
           </li>
         </ul>
       </nav>
     </div>
     <div class="flex">
-      <IconButton v-if="themeIsDark" @click="toggleTheme"
-        ><SunIcon class="w-5 h-5"
-      /></IconButton>
-      <IconButton v-else @click="toggleTheme"
-        ><MoonIcon class="w-5 h-5"
+      <IconButton
+        title="Toggle between light and dark theme"
+        @click="toggleTheme"
+        ><SunIcon v-if="themeIsDark" class="w-5 h-5" /><MoonIcon
+          v-else
+          class="w-5 h-5"
       /></IconButton>
     </div>
   </header>
@@ -90,11 +94,3 @@ const toggleMenu = () => {
   menuIsOpen.value = !menuIsOpen.value;
 };
 </script>
-
-<style lang="scss">
-@tailwind base;
-
-header a.router-link-active {
-  @apply text-grey-800 dark:text-grey-100;
-}
-</style>

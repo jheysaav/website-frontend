@@ -15,7 +15,7 @@
     <meta name="twitter:site" content="@jheysaav" />
     <meta name="twitter:creator" content="@jheysaav" />
   </Head>
-  <main class="mx-auto max-w-3xl px-6">
+  <main class="mx-auto max-w-3xl px-6 2xl:max-w-5xl">
     <slot></slot>
   </main>
 </template>
