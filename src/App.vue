@@ -32,7 +32,6 @@ window.matchMedia &&
 
 <style lang="scss">
 @import "~@/styles/fonts";
-@tailwind base;
 
 ::selection {
   @apply text-grey-50 bg-primary-500;
