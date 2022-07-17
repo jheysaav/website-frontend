@@ -10,7 +10,13 @@
         class="w-full max-w-sm"
       />
       <h1 class="mt-4 font-bold text-4xl">Page not found</h1>
-      <p>The page you're looking for doesn't exist. You can <router-link to="/" class="underline text-primary-500">return to home</router-link> or wait {{ seconds }} seconds.</p>
+      <p>
+        The page you're looking for doesn't exist. You can
+        <router-link to="/" class="underline text-primary-500"
+          >return to home</router-link
+        >
+        or wait {{ seconds }} seconds.
+      </p>
     </div>
   </default-layout>
 </template>
@@ -23,11 +29,11 @@ const router = useRouter();
 const seconds = ref(10);
 
 setInterval(() => {
-	seconds.value = seconds.value - 1;
-	seconds.value <= 0 && clearInterval();
-}, 1000)
+  seconds.value = seconds.value - 1;
+  seconds.value <= 0 && clearInterval();
+}, 1000);
 
 setTimeout(() => {
-	router.push("/");
-}, 10000)
+  router.push("/");
+}, 10000);
 </script>
